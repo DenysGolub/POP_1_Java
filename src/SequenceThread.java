@@ -25,6 +25,6 @@ public class SequenceThread extends Thread{
         }
         while(!isStop);
 
-        System.out.println("Потік № " + id + "; ітерації: " + iter + "; сума: " + sum);
+        System.out.println("Thread № " + id + "; Sum: " + sum +  "; Iterations: " + iter);
     }
 }
