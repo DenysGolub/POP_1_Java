@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class SequenceThread extends Thread{
 
     private final int id;
@@ -8,8 +10,6 @@ public class SequenceThread extends Thread{
         this.id = id;
         this.step = step;
         this.breakThread = breakThread;
-        new Thread(this.breakThread).start();
-
     }
 
     @Override
@@ -21,10 +21,11 @@ public class SequenceThread extends Thread{
         do {
             sum += step;
             iter++;
-            isStop = breakThread.IsBreak();
+            isStop = breakThread.IsBreak(id);
         }
         while(!isStop);
 
-        System.out.println("Thread № " + id + "; Sum: " + sum +  "; Iterations: " + iter);
+
+        System.out.println("Thread №" + id + "; Sum: " + sum +  "; Iterations: " + iter);
     }
 }
