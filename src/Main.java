@@ -4,7 +4,7 @@ import java.util.Random;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int numThreads = 100;
+        int numThreads = 20;
         BreakThread breakThread = new BreakThread(numThreads);
         Random rnd = new Random();
 

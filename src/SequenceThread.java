@@ -16,14 +16,12 @@ public class SequenceThread extends Thread{
     public void run() {
         long sum = 0;
         int iter = 0;
-        boolean isStop = false;
 
         do {
             sum += step;
             iter++;
-            isStop = breakThread.IsBreak(id);
         }
-        while(!isStop);
+        while(!breakThread.IsBreak(id));
 
 
         System.out.println("Thread №" + id + "; Sum: " + sum +  "; Iterations: " + iter);

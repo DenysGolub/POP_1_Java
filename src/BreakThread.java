@@ -35,8 +35,8 @@ public class BreakThread implements Runnable {
         }
     }
 
-    private void minusValueFromArray(int current) {
-        for(int i = 0; i < threadInfos.length; i++) {
+    private void minusValueFromArray(int j, int current) {
+        for(int i = j; i < threadInfos.length; i++) {
             threadInfos[i].minusTime(current);
         }
 //        System.out.println(current);
@@ -47,13 +47,18 @@ public class BreakThread implements Runnable {
     public void run() {
         bubbleSort(threadInfos);
 
+//        for(int i =0; i<threadInfos.length; i++) {
+//            System.out.println(threadInfos[i].id + "-" + threadInfos[i].time);
+//        }
+
         for(int i = 0; i < threadInfos.length; i++)
         {
             int currentTime = threadInfos[i].getTime();
             try {
                 Thread.sleep(currentTime);
                 threadInfos[threadInfos[i].getId()].setFlag();
-                minusValueFromArray(currentTime);
+//                System.out.println(threadInfos[i].getId());
+                minusValueFromArray(i, currentTime);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
